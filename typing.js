@@ -1,5 +1,5 @@
 // Update this URL to where you want the user to go after winning:
-const resultsRedirectURL = "index6.html";
+const resultsRedirectURL = "scary.html";
 
 // Words to be typed (about ~60 words total)
 const words = [
