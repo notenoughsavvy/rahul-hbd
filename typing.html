@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Typing Game</title>
+  <link rel="stylesheet" href="sty.css" />
+</head>
+<body>
+  <div class="containerss">
+    <h1>Typing Game</h1>
+
+    <div id="timer" class="hidden">Time Left: 60s</div>
+
+    <div id="word-display" class="hidden"></div>
+
+    <input
+      type="text"
+      id="input-box"
+      class="hidden"
+      placeholder="Type the word here..."
+      autocomplete="off"
+    />
+
+    <div class="buttons">
+      <button id="start-btn">Start Game</button>
+      <button id="results-btn" class="hidden"> <a href="scary.html"></a>View Results</button>
+      <button id="play-again-btn" class="hidden">Play Again</button>
+    </div>
+  </div>
+
+  <script src="typing.js"></script>
+</body>
+</html>

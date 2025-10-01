@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Click Me... If You Dare</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: black;
+      color: white;
+      font-family: 'Arial', sans-serif;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    #scareButton {
+      padding: 20px 40px;
+      font-size: 24px;
+      cursor: pointer;
+      background: red;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      transition: background 0.3s ease;
+    }
+
+    #scareButton:hover {
+      background: darkred;
+    }
+
+    #jumpscareVideo {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: 9999;
+    }
+
+    .flash {
+      animation: flash-bg 0.3s infinite alternate;
+    }
+
+    @keyframes flash-bg {
+      from { background-color: black; }
+      to { background-color: red; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Are you brave enough?</h1>
+  <button id="scareButton">Click Me</button>
+
+  <video id="jumpscareVideo" src="https://example.com/scary-video.mp4" preload="auto"></video>
+
+  <script>
+    const scareButton = document.getElementById('scareButton');
+    const jumpscareVideo = document.getElementById('jumpscareVideo');
+    const body = document.body;
+
+    scareButton.addEventListener('click', () => {
+      // Flash background
+      body.classList.add('flash');
+
+      // Show and play video
+      jumpscareVideo.style.display = 'block';
+      jumpscareVideo.play();
+
+      // Fullscreen request (optional)
+      if (jumpscareVideo.requestFullscreen) {
+        jumpscareVideo.requestFullscreen();
+      } else if (jumpscareVideo.webkitRequestFullscreen) {
+        jumpscareVideo.webkitRequestFullscreen();
+      }
+
+      // Remove button and heading
+      scareButton.remove();
+      document.querySelector('h1').remove();
+
+      // Stop flashing after 5s
+      setTimeout(() => {
+        body.classList.remove('flash');
+      }, 5000);
+    });
+  </script>
+</body>
+</html>
